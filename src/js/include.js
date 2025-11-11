@@ -16,6 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Includi header e footer
-    includeHTML("header-placeholder", "/src/pages/header.html");
-    includeHTML("footer-placeholder", "/src/pages/footer.html");
+    includeHTML("header-placeholder", "src/pages/header.html");
+    includeHTML("footer-placeholder", "src/pages/footer.html");
 });
