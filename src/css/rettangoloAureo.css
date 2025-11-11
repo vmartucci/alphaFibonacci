@@ -1,0 +1,57 @@
+#game-area {
+  text-align: center;
+  background: #fffaf4;
+  border: 2px solid #d8c4a4;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.titolo-gioco {
+  color: #5c3b28;
+  font-size: 1.5rem;
+}
+
+#canvas-gioco {
+  position: relative;
+  margin: 20px auto;
+  width: 800px;
+  height: 500px;
+  background: #fffdf8;
+  border: 2px solid #e2d4bb;
+  border-radius: 10px;
+}
+
+.square {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  cursor: grab;
+}
+
+.s1 { width: 50px; height: 50px; background: #a76f6f; top: 20px; left: 20px; }
+.s2 { width: 50px; height: 50px; background: #b97f45; top: 20px; left: 100px; opacity: 0.4; }
+.s3 { width: 100px; height: 100px; background: #c4a962; top: 20px; left: 200px; opacity: 0.4; }
+.s4 { width: 150px; height: 150px; background: #a7b95a; top: 20px; left: 350px; opacity: 0.4; }
+.s5 { width: 250px; height: 250px; background: #5f8a73; top: 20px; left: 550px; opacity: 0.4; }
+
+.target {
+  position: absolute;
+  bottom: 60px;
+  left: 100px;
+  width: 50px;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px dashed #999;
+}
+
+#msg {
+  margin-top: 15px;
+  font-weight: 500;
+  color: #5c3b28;
+}

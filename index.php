@@ -145,7 +145,7 @@
         </div>
         <!-- ******** GIOCO RETTANGOLO AUREO ******** -->
         <div class="rettangolo-sezione">
-
+            <?php include(__DIR__ . "/src/pages/giochi/rettangoloAureo.html"); ?>
         </div>
 
         <!-- ******** GIOCO INDOVINA LA SEQUENZA ******** -->
