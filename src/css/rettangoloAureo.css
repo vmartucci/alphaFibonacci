@@ -1,45 +1,49 @@
-#game-area {
+/* ================================
+   STILE GIOCO: Disegna il Rettangolo Aureo
+   ================================ */
+
+#gioco-rettangolo {
+  margin-top: 30px;
   text-align: center;
-  background: #fffaf4;
-  border: 2px solid #d8c4a4;
+  background-color: #fffaf3;
+  border: 2px solid #e5d4b1;
   border-radius: 12px;
-  padding: 20px;
-  margin-top: 20px;
+  padding: 25px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  font-family: "Poppins", sans-serif;
+  color: #5c3b28;
 }
 
 .titolo-gioco {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
   color: #5c3b28;
-  font-size: 1.5rem;
 }
 
+.istruzioni {
+  font-size: 1rem;
+  color: #7a573b;
+  margin-bottom: 20px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ================================
+   AREA DI GIOCO
+   ================================ */
 #canvas-gioco {
   position: relative;
-  margin: 20px auto;
+  margin: 0 auto;
   width: 800px;
   height: 500px;
   background: #fffdf8;
-  border: 2px solid #e2d4bb;
+  border: 2px solid #d8c4a4;
   border-radius: 10px;
+  overflow: hidden;
 }
 
-.square {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: bold;
-  border: 2px solid #fff;
-  border-radius: 6px;
-  cursor: grab;
-}
-
-.s1 { width: 50px; height: 50px; background: #a76f6f; top: 20px; left: 20px; }
-.s2 { width: 50px; height: 50px; background: #b97f45; top: 20px; left: 100px; opacity: 0.4; }
-.s3 { width: 100px; height: 100px; background: #c4a962; top: 20px; left: 200px; opacity: 0.4; }
-.s4 { width: 150px; height: 150px; background: #a7b95a; top: 20px; left: 350px; opacity: 0.4; }
-.s5 { width: 250px; height: 250px; background: #5f8a73; top: 20px; left: 550px; opacity: 0.4; }
-
+/* Target (zona dove posizionare i quadrati) */
 .target {
   position: absolute;
   bottom: 60px;
@@ -47,11 +51,81 @@
   width: 50px;
   height: 50px;
   background: rgba(0, 0, 0, 0.05);
-  border: 1px dashed #999;
+  border: 1px dashed #aaa;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
+/* ================================
+   QUADRATI TRASCINABILI
+   ================================ */
+.square {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  cursor: grab;
+  user-select: none;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+/* Effetto durante il drag */
+.square:active {
+  cursor: grabbing;
+  transform: scale(1.05);
+}
+
+/* Quadrati con dimensioni Fibonacci (scala 1:1, 2, 3, 5) */
+.s1 { width: 50px; height: 50px; background: #a76f6f; top: 20px; left: 20px; z-index: 5; }
+.s2 { width: 50px; height: 50px; background: #b97f45; top: 20px; left: 120px; opacity: 0.4; z-index: 4; }
+.s3 { width: 100px; height: 100px; background: #c4a962; top: 20px; left: 220px; opacity: 0.4; z-index: 3; }
+.s4 { width: 150px; height: 150px; background: #a7b95a; top: 20px; left: 360px; opacity: 0.4; z-index: 2; }
+.s5 { width: 250px; height: 250px; background: #5f8a73; top: 20px; left: 560px; opacity: 0.4; z-index: 1; }
+
+/* Quando un quadrato è stato posizionato correttamente */
+.square.fixed {
+  opacity: 1 !important;
+  cursor: default;
+  transform: none;
+}
+
+/* ================================
+   MESSAGGIO DI STATO
+   ================================ */
 #msg {
   margin-top: 15px;
-  font-weight: 500;
+  font-weight: 600;
   color: #5c3b28;
+  font-size: 1.1rem;
+  min-height: 24px;
+}
+
+/* Feedback positivo / negativo */
+#msg.success {
+  color: #4e7c48;
+}
+
+#msg.error {
+  color: #b64848;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+@media (max-width: 850px) {
+  #canvas-gioco {
+    width: 90%;
+    height: 400px;
+  }
+  .square {
+    font-size: 1rem;
+  }
+  .titolo-gioco {
+    font-size: 1.3rem;
+  }
 }
