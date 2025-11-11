@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function includeHTML(placeholderId, filePath) {
         const container = document.getElementById(placeholderId);
         if (!container) return; // Se il placeholder non esiste, salta
-        fetch(filePath)
+        //fetch(filePath)
+        fetch(`${window.location.origin}/${filePath}`)
             .then(response => {
                 if (!response.ok) throw new Error(`Errore nel caricamento di ${filePath}`);
                 return response.text();
